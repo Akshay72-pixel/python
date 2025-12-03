@@ -1,10 +1,12 @@
-def serve_chai():
-    yield "First Order"
-    yield "Second Order"
-    yield "Third Order"
+def infinite_chai():
+    count = 1
+    while True:
+        yield f"Order {count}"
+        count += 1
+        
+chai = infinite_chai()
+for _ in range(3):
+    print(next(chai))
+    
 
-stall = serve_chai()
 
-print(next(stall))  
-print(next(stall))  
-print(next(stall))  
