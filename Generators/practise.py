@@ -1,12 +1,13 @@
-def infinite_chai():
-    count = 1
+def chai_customer():
+    print("welcome")
+    order = yield
     while True:
-        yield f"Order {count}"
-        count += 1
-        
-chai = infinite_chai()
-for _ in range(3):
-    print(next(chai))
+        print(f"Hello your order {order}")
+        order = yield
     
 
+stall = chai_customer()
+next(stall)
 
+stall.send("Masale Chai")
+stall.send("Ginger Chai")
